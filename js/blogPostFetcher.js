@@ -4,7 +4,7 @@ fetch(RSS_URL)
   .then(response => response.text())
   .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
   .then(data => {
-    const blogBaseUrl = data.querySelectorAll("link")[1];
+    const blogBaseUrl = data.querySelectorAll("link")[1].getAttribute("href");
     if (blogBaseUrl) {
         $("#blogBaseUrl").attr("href", blogBaseUrl);
     }
